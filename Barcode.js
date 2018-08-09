@@ -35,7 +35,7 @@ export default class Barcode extends Component {
 
     static propTypes = {
         ...View.propTypes,
-        onBarCodeRead: PropTypes.func.isRequired,
+        onBarCodeReadTwo: PropTypes.func.isRequired,
         barCodeTypes: PropTypes.array,
         scannerRectWidth: PropTypes.number,
         scannerRectHeight: PropTypes.number,

@@ -24,7 +24,7 @@ RCT_EXPORT_VIEW_PROPERTY(scannerLineInterval, NSInteger)
 
 RCT_EXPORT_VIEW_PROPERTY(scannerRectCornerColor, NSString)
 
-RCT_EXPORT_VIEW_PROPERTY(onBarCodeRead, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onBarCodeReadTwo, RCTBubblingEventBlock)
 
 RCT_CUSTOM_VIEW_PROPERTY(barCodeTypes, NSArray, RCTBarcode) {
 //    NSLog(@"custom barCodeTypes -> %@", self.barCodeTypes);
@@ -247,14 +247,14 @@ RCT_EXPORT_METHOD(stopSession) {
 //        NSLog(@"type = %@, data = %@", metadata.type, metadata.stringValue);
         for (id barcodeType in self.barCodeTypes) {
             if ([metadata.type isEqualToString:barcodeType]) {
-                if (!self.barcode.onBarCodeRead) {
+                if (!self.barcode.onBarCodeReadTwo) {
                     return;
                 }
                 
                 AudioServicesPlaySystemSound(self.beep_sound_id);
                 
 //                NSLog(@"type = %@, data = %@", metadata.type, metadata.stringValue);
-                self.barcode.onBarCodeRead(@{
+                self.barcode.onBarCodeReadTwo(@{
                                               @"data": @{
                                                         @"type": metadata.type,
                                                         @"code": metadata.stringValue,
