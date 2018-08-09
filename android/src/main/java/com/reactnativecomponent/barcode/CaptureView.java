@@ -375,13 +375,19 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     }
 
     public void stopScan() {
-        hasSurface = false;
-        viewfinderView.drawLine = false;
-        if (handler != null) {
-            handler.quitSynchronously();
+        try {
+            hasSurface = false;
+            if (viewfinderView != null)
+                viewfinderView.drawLine = false;
+            if (handler != null) {
+                handler.quitSynchronously();
+            }
+            CameraManager.get().stopPreview();
+            CameraManager.get().closeDriver();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-        CameraManager.get().stopPreview();
-        CameraManager.get().closeDriver();
+        
     }
 
     public void stopQR() {
