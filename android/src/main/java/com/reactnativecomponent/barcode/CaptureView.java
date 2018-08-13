@@ -630,14 +630,14 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
         super.onWindowFocusChanged(hasWindowFocus);
 
-        if (hasWindowFocus) {
-            //对应onresume
-            this.surfaceTexture = textureView.getSurfaceTexture();
-            startScan();
-        } else {
-            //对应onpause
-            stopScan();
-        }
+        // if (hasWindowFocus) {
+        //     //对应onresume
+        //     this.surfaceTexture = textureView.getSurfaceTexture();
+        //     startScan();
+        // } else {
+        //     //对应onpause
+        //     stopScan();
+        // }
 
     }
 
